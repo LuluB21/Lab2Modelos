@@ -146,11 +146,30 @@ function calcularDistribuciones(){
 }
 
 function normal() {
-
+    var sum= 0;
+    var i=1;
+    for (i = 1; i <= 12; i++) {
+        sum= sum+ datosUi[i] ; 
+    }
+    cantidadBebidasVendidas = 80*(sum-6)+300
 }
 
-function binomial() {
 
+
+function binomial() {
+    for (bebida = 1; bebida <= cantidadBebidasVendidas; bebida++) {
+        if (datosUi[bebida]>=0.45) {
+            cervezasArtesanales= cervezasArtesanales+1;
+        }
+        else {
+            if (datosUi[bebida]>=0.30) {
+                tragos= tragos+1;
+            }
+            else{
+                bebidasSAlcohol= bebidasSAlcohol+1
+            }
+        }
+    }
 }
 
 function geometrica () {
