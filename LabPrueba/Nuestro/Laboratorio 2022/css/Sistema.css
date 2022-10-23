@@ -1,0 +1,215 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body, html {
+    background-color: #a61e1e;
+    font-family: "Sofia", Times, serif;
+}
+
+h1 {
+    text-align: center;
+    font-family: "Sofia", Times, serif;
+    color: black;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    background-color: whitesmoke;
+    width: 100%;
+    height: 100px;
+    padding: 25px;
+}
+
+p, label {
+    font-family: "Sofia", Times, serif;
+    font-size: 18px;
+    text-align: justify;
+    margin-right: 6px;
+    width: 300px;
+}
+
+.container-fluid{
+    background-color: #a61e1e;
+    width: 100%;
+    height: 120vh;
+}
+
+.informacion {
+    border-bottom: 3px solid #a61e1e;
+}
+
+.caja-gen{
+    background-color: whitesmoke; 
+    border-radius: 15px; 
+    padding: 15px; 
+    padding-left: 30px;
+    padding-top: 30px;
+    padding-right: 50px;
+}
+
+.myButton {
+    font-family: "Sofia", Times, serif;
+    font-weight: bold;
+    background-color: #a61e1e;
+    border-radius: 28px;
+    border: 3px solid whitesmoke;
+    cursor: pointer;
+    color: whitesmoke;
+    font-family: Arial;
+    font-size: 14px;
+    padding: 10px 25px;
+    width: 170px;
+    margin-left: 22%;
+    margin-right: 22%;
+    transition-duration: 0.4s;
+}
+  
+.myButton:hover {
+    background-color:whitesmoke;
+    border: 2px solid #a61e1e;
+    color: #a61e1e;
+}
+   
+*:focus {
+    outline: 0;
+}
+  
+table {
+    border-collapse: collapse;
+    width: 50%;
+    border: 1px solid #d7d7d7;
+    border-radius: 28px;
+}
+  
+th, td {
+    padding: 8px;
+    text-align: center;
+    font-family:'Times New Roman', Times, serif;
+    font-weight: bold;
+    border: 2px solid whitesmoke;
+    text-transform: uppercase;
+}
+  
+td{
+    color:whitesmoke;
+}
+  
+th {
+    background-color: whitesmoke;
+    color: #a61e1e;
+}
+  
+  input{
+    padding-top: 5px;
+    padding-bottom: 4px;
+    font-size: 15px;
+    border-radius: 10px;
+    border-width: 0px;
+    border-color: #cacaca;
+    margin-top: 3px;
+    padding-left: 8px;
+    width: 96%;
+  }
+  
+.row{
+    display: flex; 
+    align-items: center;
+}
+  
+.contenedor{
+    display: flex; 
+    justify-content: center; 
+    margin-top: 20px;
+}
+  
+.row-est{
+    display:inline; 
+    width: 370px; 
+    margin-right: 20px;
+}
+  
+.form-est{
+    text-align: left; 
+    margin-bottom: 20px;
+}
+
+td {
+    background-color: #a61e1e;
+    color: white;
+    border: 2px solid whitesmoke;
+}
+
+.button1 {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #f44336;
+}
+  
+.button1:hover {
+    background-color: #f44336;
+    color: white;
+}
+
+.button {
+    background-color: white;
+    border: none;
+    color: #f44336;
+    border: 2px solid #f44336;
+    padding: 16px 32px;
+    text-align: center;
+    /* text-decoration: none; */
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    font-family: "Sofia", Times, serif;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#DivTexto {
+    position: relative;
+    background-color: whitesmoke;
+    width: 100%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    height: 60vh;
+    margin-top: 80px;
+}
+
+h1 {
+    position: absolute;
+    color:#a61e1e;
+    font-family: "Sofia", Times, serif;
+    width: 80%;
+    height: 60px;
+    top:20px;
+}
+
+.comentario {
+    position: absolute;
+    width: 90%;
+    height: 150px;
+    text-align: justify;
+    margin-top: 100px;
+    font-family: "Sofia", Times, serif;
+    color: #a61e1e;
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Numeros Pseudoaleatorios</title>
+    <link href="css/Sistema.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/5.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/5.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.0/js/bootstrap.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=shadow-multiple">
+</head>
+<body>
+    <div class="container-fluid abs-center">
+        <h1>Método Congruencial Mixto</h1>
+        <br><br>
+        
+        <div class="contenedor">
+            <div class="row-est">
+              <div class="caja-gen">
+                <form class="form-est">
+                <div class="informacion">
+                    <p>Ingrese los siguientes datos: </p>
+                    
+                </div>
+                <br>
+                <div class="row">
+                  <label for="semilla">Valor de la semilla</label>
+                  <input type="number" id="id-semilla" name="semilla" min="0" value="4321">
+                </div><br>
+                <div class="row">
+                  <label for="a">Valor de a</label> 
+                  <input type="number" id="id-a" name="a" min="0" value="7733">
+                </div><br>  
+                <div class="row">
+                  <label for="m">Valor de m</label>
+                  <input type="number" id="id-m" name="m" min="0" value="9038">
+                </div><br>  
+                <div class="row">
+                  <label for="c">Valor de c</label>
+                  <input type="number" id="id-c" name="c" min="0" value="1709">
+                </div><br>  
+                <div>
+                  <label for="gen">Cantidad de registros</label>
+                  <input type="number" id="id-gen" name="gen" min="0" value="50">
+                </div><br>
+                  <button class="myButton" type="button" onclick="cargarDatos()">Generar Serie</button>
+                </form>
+              </div>
+            </div>
+            <div style="display:inline; height: 636px ;width: 620px; text-align: center; overflow-y: scroll;">
+              <table id="t01" style="width: 600px;" >
+                <tr>
+                  <th></th>
+                  <th></th> 
+                  <th>CALCULO 1</th>
+                  <th>CALCULO 2</th>
+                  <th>CALCULO 3</th>
+                  <th></th>
+                </tr>   
+                <tr>
+                  <th id="tf-1" value="0">Orden</th>
+                  <th>X<sub>n</sub></th> 
+                  <th>a * X<sub>n</sub></th>
+                  <th>CALCULO 1 + c</th>
+                  <th>CALCULO 2 mod m</th>
+                  <th>U<sub>i</sub></th>
+                </tr>
+              </table><br>
+            </div>
+          </div>
+        
+
+
+
+
+
+
+        <br><br><br>
+        <h1>Distribución de Probabilidad</h1>
+
+        <div id="DivTexto">
+            <h1>Enunciado</h1>
+            <p class="comentario">Un nuevo Beach Bar en la playa Mansa de Punta del Este planea incorporar cambios para la temporada alta.<br>
+            Estos cambios incluyen el horario de atención, el inmobiliario y el stock de bebidas.<br> 
+            El horario de atención actual es de 20:00pm a 4:00am. En una noche la gente realiza pedidos desde las 20:00pm hasta las 3:00am aproximadamente.<br> 
+            El bar cuenta con una barra para 10 personas, 10 mesas para 2 personas y 3 mesones para grupos de hasta 6 personas.<br>
+            La probabilidad de que ingrese un grupo de más de 4 personas es de 2 de cada 5 grupos que ingresan al bar.<br>  
+            La carta de bebidas incluye cervezas artesanales, tragos con alcohol y bebidas sin alcohol.<br>
+            Las probabilidades de que se pidan son de 45%, 30% y 25% respectivamente.<br><br>
+            Las innovaciones están previstas para enero de 2023, por lo que se solicita simular 1 mes de operaciones para recopilar la siguiente información:<br><br>
+              
+            *Duración del tiempo de ventas (teniendo en cuenta hasta que hora la gente realiza pedidios).<br>
+            *Cantidad de bebidas de cada tipo que se venden en una noche.<br>
+            *Cantidad de grupos de menos de 4 personas que llegaron al bar hasta que ingresó un grupo conformado por más de 4 personas.</p>
+        </div>
+
+        <div class="col-md-8">
+          <a class="button button1" id="btnSimulacion" type="button" onclick="calcularDistribuciones();">Realizar Simulación</a>
+        </div>
+
+        <br><br>
+        <h3>Resultados obtenidos</h3>
+        <ul id="resultados"></ul>
+        <br><br>
+
+
+        <script src="js/Calculos.js"></script>
+    </div>
+</body>
+</html>
