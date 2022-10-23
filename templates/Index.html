@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio 2</title>
+
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <section class= "container">
+        <br>
+        <h1>Laboratorio - Distribuciones de probabilidades</h1>
+        <p><strong>Enunciado "CASO 1":</strong>
+          La fábrica de juguetes ACME ha decidido realizar la simulación de una de sus líneas de producción con la finalidad de estudiar la misma y evaluar posibles mejoras a realizar. <br> 
+          Para armar cada juguete son necesarias 3 piezas distintas (Piezas de TIPO A, B y C), estas piezas llegan a línea con un tiempo entre arribos que se ajusta a una distribución exponencial con media de 2 segundos. Una vez que las piezas alcanzan este punto un robot ensamblador se encarga primero de tomar una pieza del tipo A y evalúa si la misma no posee fallas para luego realizar el mismo procedimiento con las piezas del tipo B y C. La probabilidad de que una pieza de tipo A sea defectuosa es de 3 piezas de cada 100. La probabilidad de que una pieza de tipo B sea defectuosa es de 10 piezas de cada 100, y la probabilidad de que una pieza del tipo C sea defectuosa es de 5 piezas de cada 100. Cuando el robot ha obtenido tres piezas (una de cada tipo) en perfectas condiciones se procede con el ensamblado final del juguete insumiendo el tiempo indicado con una variable aleatoria como indica la siguiente tabla:  
+        </p>
+        <img src="../img/tablaEnunciado.png" alt="tablaEnunc">
+        <p>
+          Al final de la línea existen dos empacadoras, una de ellas cada 10 juguetes prepara una caja, mientras que la restante prepara una nueva caja cada 5 juguetes. Luego de realizado este último proceso de empaque, las cajas son llevadas hasta el depósito para su posterior transporte y distribución. <br>
+            a)	Realizar 40 corridas de 30 minutos de duración de la línea de producción e informar:
+            <ul>
+              <li>Cantidad de piezas defectuosas</li>
+              <li>Cantidad total de juguetes ensamblados</li>
+              <li>Cantidad de cajas con 10 juguetes</li>
+              <li>Cantidad de cajas con 5 juguetes</li>
+              <li>Tiempo promedio de ensamblado de cada juguete</li>
+            </ul>
+        </p>
+
+        <h2 class = "text-center">Diagramos de flujo</h2>
+        <img src="../img/DiagramaDeFlujo.png" width="100%" alt="diagramaFlujo">
+
+        <br><br><br>
+        <h1> Generar números pseudoaleatorios "Método PCC"</h1>
+        <br> 
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+           <img src="../img/tl.png" alt="logoInformacion" width="25px">
+        </button>
+
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Consideraciones:</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                - Para obtener una buena generación, se recomienda introducir una semilla "superior a 3" dijitos. <br> - El número de N (Parte Central) tiene que ser mayor o igual a '2' y menor o igual a '9'. <br>- La generación permitida actual es de "9999" valores. (PARA EVITAR LOS LARGOS TIEMPOS DE ESPERA)
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <form class="row g-3 needs-validation" novalidate>
+          <div class="col-md-4">
+            <label for="semilla"  class="form-label">Ingrese una semilla:</label>
+            <input type="number" class="form-control" id= "semilla" name = "semilla" maxlength="12" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" value="89272" required>
+            <div class="invalid-feedback">
+              * Oligatorio
+            </div>
+          </div>
+          <div class="col-md-4">
+            <label for="numeroN"  class="form-label" >Ingrese N:</label>
+            <input type="number" class="form-control" id="numeroN" name= "numeroN" maxlength="1" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"  value="8" onkeypress="mayorACero(event);" required>
+            <div class="invalid-feedback">
+              * Oligatorio
+            </div>
+          </div>
+          <div class="col-md-4">
+            <label for="totalValores"  class="form-label">Total de valores a generar:</label>
+            <input type="number" class="form-control" id="totalValores" name ="totalValores" maxlength="4" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" value="9999" required>
+            <div class="invalid-feedback">
+              * Oligatorio
+            </div>
+          </div>
+          <div class="col-md-8">
+            <button class="btn btn-primary" type="submit" onclick="validarDatos();generarTabla();">Generar</button>
+          </div>
+          <div class= "col-md-4">
+              <label class = "me-5" for="tipoCategoria"  onclick="OcultarMostrarTablaGenerada();">Tipo de generacion:   </label>
+              <input type="radio" id="tipoCategoria" name="tipoCategoria" value="Oculta" checked="checked" onclick="OcultarMostrarTablaGenerada();"> Oculta &nbsp;&nbsp;
+              <input type="radio" name="tipoCategoria" value="Visible" onclick="OcultarMostrarTablaGenerada();"> Visible &nbsp;&nbsp;      
+          </div>
+        </form>
+        <br>
+        <div class="col-md-8">
+          <button class="btn btn-primary" type="button" onclick="calcularDistribuciones();">Correr simulación</button>
+        </div>
+
+
+
+
+        <div class= "table-responsive" id= 'contenidoTabla'>
+            <table  class="table table-striped table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">Orden</th>
+                  <th scope="col">M</th>
+                  <th scope="col">M^2</th>
+                  <th scope="col">Longitud(VALIDA)</th>
+                  <th scope="col">N</th>
+                  <th scope="col">U_i</th>
+                </tr>
+              </thead>
+              <tbody id="contenedorTabla">
+              </tbody>
+            </table>
+        </div>
+
+
+        <br><br>
+        <h3>Resultados obtenidos</h3>
+        <ul id="resultados"></ul>
+        <br><br>
+
+    
+    <script src="../js/Calculos.js"></script>
+    <script src="../js/validadorEntradas.js"></script>
+</body>
+</html>
