@@ -70,15 +70,7 @@ function carga(semilla, varA, varC, varM, numeral, stop,rest){
 
     datosUi.push(ui); //CARGAR ARRAY DE "Ui"
     
-
-
     carga(calculo3,varA,varC, varM, numeral, stop,rest);
-
-    /*array.push(ui);
-    console.log(array);*/
-    /*console.log(datosUi);*/
-    
-    /*calcularDistribuciones(array);*/
 
 }
 
@@ -108,14 +100,17 @@ var grupoMenorA4=0, bebida;
 var cantidadBebidasVendidas;
 
 function calcularDistribuciones(){
-    for(let c=0; c<30; c++) {
+    for (simulacionMes=0; simulacionMes<30; simulacionMes++) {
         if(datosUi[i] != null || datosUi[i+1] != null){
             Ui = datosUi[i];
             i++;
         }
 
-        duracionVentas = -7 * Math.log(Ui);
+        x = -(1/7) * Math.log(Ui); /*Coloco 1/7 porque en una noche los clientes tienen 7 horas para solicitar alguna bebida*/
+                                                /*VERIFICAR QUE VA*/
 
+        /*duracionVentas = duracionVentas + x;*//*ACUMULA TODOS LOS VALORES */
+        
         normal();
 
         bebida = 1;
@@ -126,9 +121,10 @@ function calcularDistribuciones(){
         }
 
         if(bebida <= cantidadBebidasVendidas) {
-            binomial();
-            bebida = bebida + 1;
-
+            for (bebida = 1; bebida <= cantidadBebidasVendidas; bebida++) {
+                binomial();
+                bebida = bebida + 1;
+            }
         } else {
             geometrica();
         }
@@ -147,20 +143,35 @@ function normal() {
 }
 
 function binomial() {
-    for (bebida = 1; bebida <= cantidadBebidasVendidas; bebida++) {
-        if (datosUi[bebida]>=0.45) {
+        /*if(datosUi[bebida]< 0.25) {
+            bebidasSAlcohol= bebidasSAlcohol+1;
+        }
+        if(datosUi[bebida] > 0.25 && datosUi[bebida] <=0.45){
+            cervezasArtesanales = cervezasArtesanales + 1;
+        } else {
+            tragos= tragos+1;
+        }*/
+
+        /*if (datosUi[bebida]>=0.45) {
             cervezasArtesanales= cervezasArtesanales+1;
         }
-        else {
-            if (datosUi[bebida]>=0.30) {
+        if (datosUi[bebida]>=0.30) {
                 tragos= tragos+1;
-            }
-            else{
-                bebidasSAlcohol= bebidasSAlcohol+1
-            }
+        } else{
+            bebidasSAlcohol= bebidasSAlcohol+1
+        }*/
+
+        if(datosUi[bebida]< 0.25) {
+            bebidasSAlcohol= bebidasSAlcohol+1;
         }
-    }
+        if(datosUi[bebida] >= 0.30){
+            tragos= tragos+1;
+        } 
+        if(datosUi[bebida] >= 0.45) {
+            cervezasArtesanales = cervezasArtesanales + 1;
+        }
 }
+
 
 function geometrica () {
     p = 0.4;
