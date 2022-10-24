@@ -17,8 +17,9 @@
 </head>
 <body>
     <div class="container-fluid abs-center">
-        <h1>Método Congruencial Mixto</h1>
-        <br><br>
+      <br> 
+      <h1>Método Congruencial Mixto</h1>
+      <br><br><br>
         
         <div class="contenedor">
             <div class="row-est">
@@ -73,7 +74,7 @@
                 </tr>
               </table><br>
             </div>
-          </div>
+        </div>
         
 
 
@@ -83,6 +84,7 @@
 
         <br><br><br>
         <h1>Distribución de Probabilidad</h1>
+        
 
         <div id="DivTexto">
             <h1>Enunciado</h1>
@@ -92,7 +94,8 @@
             El bar cuenta con una barra para 10 personas, 10 mesas para 2 personas y 3 mesones para grupos de hasta 6 personas.<br>
             La probabilidad de que ingrese un grupo de más de 4 personas es de 2 de cada 5 grupos que ingresan al bar.<br>  
             La carta de bebidas incluye cervezas artesanales, tragos con alcohol y bebidas sin alcohol.<br>
-            Las probabilidades de que se pidan son de 45%, 30% y 25% respectivamente.<br><br>
+            Las probabilidades de que se pidan son de 45%, 30% y 25% respectivamente.<br>
+            Cada noche se espera que se vendan 300 bebidas, con una desviación estándar de 80.<br><br>
             Las innovaciones están previstas para enero de 2023, por lo que se solicita simular 1 mes de operaciones para recopilar la siguiente información:<br><br>
               
             *Duración del tiempo de ventas (teniendo en cuenta hasta que hora la gente realiza pedidios).<br>
@@ -105,10 +108,39 @@
         </div>
 
         <br><br>
-        <h3>Resultados obtenidos</h3>
+        
         <ul id="resultados"></ul>
-        <br><br>
+        <br>
 
+        <div class="tabla2">
+          <h3>Resultados obtenidos</h3><br>
+          <table class="table">
+              <thead>
+              <tr>
+                  <th scope="col">Duración del tiempo de ventas</th>
+                  <th scope="col">Cantidad de bebidas vendidas en total</th>
+                  <th scope="col">Cantidad de cervezas vendidas</th>
+                  <th scope="col">Cantidad de tragos vendidos</th>
+                  <th scope="col">Cantidad de bebidas sin alcohol vendidos</th>
+                  <th scope="col">Cantidad de grupos</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                  <th scope="row" id="duracion"></th>
+                  <td id="total"></td>
+                  <td id="cervezas"></td>
+                  <td id="tragos" ></td>
+                  <td id="bebidas"></td>
+                  <td id="grupos"></td>
+              </tr>
+
+              </tbody>
+          </table>
+      </div>
+      <br>
+      <br>
+         
 
         <script src="js/Calculos.js"></script>
     </div>
