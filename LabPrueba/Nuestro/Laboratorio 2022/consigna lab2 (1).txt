@@ -1,0 +1,40 @@
+ENUNCIADO:
+
+Un nuevo beach bar en la Playa Mansa de Punta del Este planea incorporar cambios para la temporada alta. 
+Estos cambios incluyen el horario de atención, el inmobiliario y el stock de bebidas. 
+El horario de atención actual es de 20:00pm a 4:00am. En una noche la gente realiza pedidos hasta las 3:00am aproximadamente. 
+El bar cuenta con una barra para 10 personas, 10 mesas para 2 personas y 3 mesones para grupos de hasta 6 personas. La probabilidad de que 
+ingrese un grupo de más de 4 personas es de 2 de cada 5 grupos que ingresan al bar. 
+La carta de bebidas incluye cervezas artezanales, tragos con alcohol y bebidas sin alcohol. Las probabilidades de que se pidan son de 45%, 30% y 25% respectivamente.
+
+Las innovaciones estan previstas para enero de 2023 por lo que se solicita simular 1 mes de operaciones en noviembre de este año.  
+La información que se requiere es la siguiente: 
+
+*Duración del tiempo de ventas (teniendo en cuenta hasta que hora la gente realiza pedidios).
+*Cantidad de bebidas de cada tipo que se venden en una noche.
+*Cantidad de grupos de mas de 4 personas que llegan al bar.
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+EXPONENCIAL
+modificar el horario de apertura 
+la gente pide hasta las 4 aprox 
+la expo devuelve cierto tiempo o duracion 
+duración del tiempo de ventas 
+
+BINOMIAL
+valor y prob asociada es binomial, para tipo de bebida cuantas bebidas de cada tipo se venden en una noche 
+
+GEOMETRICA
+el local quiere saber si es necesario incorporar mesones para grupos numerosos 
+geometrica cuantos grupos se sentaron hasta que llego un grupo de mas de 4 personas 
+
+dias con acumulador hasta que se cumple el mes o llega a 30 
+dos acumuladores el otro puede calcular 
+
+CAMBIOS 
+horario 
+ventas de bebidas 
+mesas
+

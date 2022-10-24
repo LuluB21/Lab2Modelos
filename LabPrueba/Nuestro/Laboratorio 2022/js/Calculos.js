@@ -107,54 +107,26 @@ function calcularDistribuciones(){
             i++;
         }
 
-        if(bebida<= cantidadBebidasVendidas) {
+        if(bebida <= cantidadBebidasVendidas) {
             binomial();
-
-            if(probabilidadBebidas >= 0.45) {
-                cervezasArtesanales = cervezasArtesanales + 1;
-            } else {
-                if(probabilidadBebidas >= 0.3) {
-                    tragos = tragos + 1;
-                } else {
-                    bebidasSAlcohol = bebidasSAlcohol + 1;
-                }
-            }
             bebida = bebida + 1;
+
         } else {
             geometrica();
-
-            /*IMPRESION POR PANTALLA*/
-            /*resultados.innerHTML = ""
-
-            if(UiInsuficiente == true){
-                result = "CANTIDAD DE 'UI' INSUFICIENTE PARA COMPLETAR LA SIMULACIÓN.";
-            }else{
-                result = "<li>Cantidad de piezas defecuosas: "+ piezasDefectuosas +" </li>";
-                result += "<li>Cantidad Total de juguetes ensamblados: "+ juguetesEnsamblados +" </li>";
-                result += "<li>Cantidad de cajas con 10 juguetes: "+ cantC10 +" </li>";
-                result += "<li>Cantidad de cajas con 5 juguetes: "+ cantC5 +" </li>";
-                result += "<li>Tiempo promedio de emsamble: "+ TPromEmsamble.toString().substring(0,6) +" seg </li>";
-            }
-            resultados.innerHTML = result;*/
-
-            simulacionMes = simulacionMes + 1;
         }
-
-
         simulacionMes = simulacionMes + 1;
     }
+    impresionPorPantalla();
 }
 
 function normal() {
     var sum= 0;
     var i=1;
     for (i = 1; i <= 12; i++) {
-        sum= sum+ datosUi[i] ; 
+        sum= sum + datosUi[i] ; 
     }
     cantidadBebidasVendidas = 80*(sum-6)+300
 }
-
-
 
 function binomial() {
     for (bebida = 1; bebida <= cantidadBebidasVendidas; bebida++) {
@@ -173,5 +145,25 @@ function binomial() {
 }
 
 function geometrica () {
+    /*El bar cuenta con una barra para 10 personas, 10 mesas para 2 personas y 3 mesones para grupos de hasta 6 personas.
+    La probabilidad de que ingrese un grupo de más de 4 personas es de 2 de cada 5 grupos que ingresan al bar. */
+    /*Cantidad de grupos de menos de 4 personas que llegaron al bar hasta que ingresó un grupo conformado por más de 4 personas*/
 
+    p = (1 - 0.4);
+    let bandera = true;
+    while(bandera == true){
+        if(datosUi[i] != null || datosUi[i+1] != null){
+            Ui = datosUi[i];
+            i++; 
+        }
+        if(Ui <= p) {
+            bandera = false;
+        } else {
+            grupoMenorA4 = grupoMenorA4 + 1;
+        }
+    }
+}
+
+function impresionPorPantalla() {
+    
 }
