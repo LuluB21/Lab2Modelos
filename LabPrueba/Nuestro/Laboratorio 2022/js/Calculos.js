@@ -149,7 +149,7 @@ function geometrica () {
     La probabilidad de que ingrese un grupo de más de 4 personas es de 2 de cada 5 grupos que ingresan al bar. */
     /*Cantidad de grupos de menos de 4 personas que llegaron al bar hasta que ingresó un grupo conformado por más de 4 personas*/
 
-    p = (1 - 0.4);
+    p = 0.4;
     let bandera = true;
     while(bandera == true){
         if(datosUi[i] != null || datosUi[i+1] != null){
@@ -165,5 +165,5 @@ function geometrica () {
 }
 
 function impresionPorPantalla() {
-    
+
 }
