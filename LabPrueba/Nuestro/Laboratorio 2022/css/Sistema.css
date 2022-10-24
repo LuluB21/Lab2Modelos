@@ -11,7 +11,6 @@ body, html {
 h1 {
     text-align: center;
     font-family: "Sofia", Times, serif;
-    color: black;
     align-items: center;
     justify-content: center;
     font-weight: bold;
@@ -19,6 +18,8 @@ h1 {
     width: 100%;
     height: 100px;
     padding: 25px;
+    color:#a61e1e;
+    display: flex;
 }
 
 p, label {
@@ -32,7 +33,7 @@ p, label {
 .container-fluid{
     background-color: #a61e1e;
     width: 100%;
-    height: 120vh;
+    height: auto;
 }
 
 .informacion {
@@ -191,17 +192,9 @@ td {
     display: flex;
     text-align: center;
     justify-content: center;
-    height: 60vh;
+    height: 70vh;
     margin-top: 80px;
-}
-
-h1 {
-    position: absolute;
-    color:#a61e1e;
-    font-family: "Sofia", Times, serif;
-    width: 80%;
-    height: 60px;
-    top:20px;
+    margin-bottom: 80px;
 }
 
 .comentario {
@@ -212,4 +205,14 @@ h1 {
     margin-top: 100px;
     font-family: "Sofia", Times, serif;
     color: #a61e1e;
+    margin-bottom: 90px;
+}
+
+/*BOTON SIMULACION*/
+.col-md-8 {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: 100%;  
 }
