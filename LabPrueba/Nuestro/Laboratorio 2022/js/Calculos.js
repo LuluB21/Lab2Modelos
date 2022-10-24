@@ -117,7 +117,11 @@ function calcularDistribuciones(aleatorios){
         }
 
         if(bebida <= cantidadBebidasVendidas) {
+<<<<<<< HEAD
             binomial(cantidad);
+=======
+            binomial();
+>>>>>>> 00c23d127aebd5832ac89ec8b04609e6b10c110d
             bebida = bebida + 1;
 
         } else {
@@ -132,7 +136,11 @@ function normal(aleatorios) {
     var sum= 0;
     var i=1;
     for (i = 1; i <= 12; i++) {
+<<<<<<< HEAD
         sum= sum + aleatorios[i] ; 
+=======
+        sum= sum + datosUi[i] ; 
+>>>>>>> 00c23d127aebd5832ac89ec8b04609e6b10c110d
     }
     cantidadBebidasVendidas = 80*(sum-6)+300
     let resultado2= document.getElementById('total');
@@ -140,8 +148,13 @@ function normal(aleatorios) {
     binomial(cantidadBebidasVendidas);
 }
 
+<<<<<<< HEAD
 function binomial( cantidadBebidas) {
     for (bebida = 1; bebida <= cantidadBebidas; bebida++) {
+=======
+function binomial() {
+    for (bebida = 1; bebida <= cantidadBebidasVendidas; bebida++) {
+>>>>>>> 00c23d127aebd5832ac89ec8b04609e6b10c110d
         if (datosUi[bebida]>=0.45) {
             cervezasArtesanales= cervezasArtesanales+1;
         }
@@ -185,6 +198,7 @@ function geometrica () {
     }
 }
 
+<<<<<<< HEAD
 /*function impresionPorPantalla() {
     let resultado1= document.getElementById('duracion');
     resultado1.innerHTML= duracionVentas;
@@ -207,4 +221,7 @@ function geometrica () {
     console.log(grupoMenorA4);
 }
 */
+=======
+function impresionPorPantalla() {
+>>>>>>> 00c23d127aebd5832ac89ec8b04609e6b10c110d
 
