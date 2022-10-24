@@ -1,4 +1,5 @@
 var rest = document.getElementById("id-gen").value;
+var array = [];
 
 function cargarDatos(){
     document.getElementById('t01').innerHTML=`
@@ -73,9 +74,11 @@ function carga(semilla, varA, varC, varM, numeral, stop,rest){
 
     carga(calculo3,varA,varC, varM, numeral, stop,rest);
 
-    array.push(ui);
-    console.log(array);
-    calcularDistribuciones(array);
+    /*array.push(ui);
+    console.log(array);*/
+    /*console.log(datosUi);*/
+    
+    /*calcularDistribuciones(array);*/
 
 }
 
@@ -90,24 +93,30 @@ function mod(vC2, vM){
     return vC2;
 }
 
+
+
+
+
+
+
+
+/*DISTRIBUCIONES DE PROBABILIDAD */
 var duracionVentas=0, cervezasArtesanales=0, tragos=0, bebidasSAlcohol=0;
 var simulacionMes = 0, i=0;
 var UiInsuficiente= false;
 var grupoMenorA4=0, bebida;
+var cantidadBebidasVendidas;
 
-function calcularDistribuciones(aleatorios){
+function calcularDistribuciones(){
     for(let c=0; c<30; c++) {
         if(datosUi[i] != null || datosUi[i+1] != null){
-            Ui = aleatorios[i];
+            Ui = datosUi[i];
             i++;
         }
 
         duracionVentas = -7 * Math.log(Ui);
-        
-        let resultado1= document.getElementById('duracion');
-        resultado1.innerHTML= duracionVentas;
 
-        normal(aleatorios);
+        normal();
 
         bebida = 1;
 
@@ -117,7 +126,7 @@ function calcularDistribuciones(aleatorios){
         }
 
         if(bebida <= cantidadBebidasVendidas) {
-            binomial(cantidad);
+            binomial();
             bebida = bebida + 1;
 
         } else {
@@ -128,20 +137,17 @@ function calcularDistribuciones(aleatorios){
     impresionPorPantalla();
 }
 
-function normal(aleatorios) {
-    var sum= 0;
-    var i=1;
-    for (i = 1; i <= 12; i++) {
-        sum= sum + aleatorios[i] ; 
+var sum= 0;
+
+function normal() {
+    for (var a = 1; a <= 12; a++) {
+        sum= sum + datosUi[a]; 
     }
-    cantidadBebidasVendidas = 80*(sum-6)+300
-    let resultado2= document.getElementById('total');
-    resultado2.innerHTML= cantidadBebidasVendidas;
-    binomial(cantidadBebidasVendidas);
+    cantidadBebidasVendidas = 80 * (sum - 6) + 300
 }
 
-function binomial( cantidadBebidas) {
-    for (bebida = 1; bebida <= cantidadBebidas; bebida++) {
+function binomial() {
+    for (bebida = 1; bebida <= cantidadBebidasVendidas; bebida++) {
         if (datosUi[bebida]>=0.45) {
             cervezasArtesanales= cervezasArtesanales+1;
         }
@@ -154,22 +160,9 @@ function binomial( cantidadBebidas) {
             }
         }
     }
-    let resultado2= document.getElementById('cervezas');
-    resultado2.innerHTML= cervezasArtesanales;
-
-    let resultado3= document.getElementById('tragos');
-    resultado3.innerHTML= tragos;
-
-    let resultado4= document.getElementById('bebidasSAlcohol');
-    resultado4.innerHTML= bebidasSAlcohol;
-
 }
 
 function geometrica () {
-    /*El bar cuenta con una barra para 10 personas, 10 mesas para 2 personas y 3 mesones para grupos de hasta 6 personas.
-    La probabilidad de que ingrese un grupo de más de 4 personas es de 2 de cada 5 grupos que ingresan al bar. */
-    /*Cantidad de grupos de menos de 4 personas que llegaron al bar hasta que ingresó un grupo conformado por más de 4 personas*/
-
     p = 0.4;
     let bandera = true;
     while(bandera == true){
@@ -185,26 +178,24 @@ function geometrica () {
     }
 }
 
-/*function impresionPorPantalla() {
-    let resultado1= document.getElementById('duracion');
+var resultado1, resultado2, resultado3, resultado4, resultado5, resultado6;
+
+function impresionPorPantalla() {
+    resultado1= document.getElementById('duracion');
     resultado1.innerHTML= duracionVentas;
-    console.log(duracionVentas);
 
-    let resultado2= document.getElementById('cervezas');
-    resultado2.innerHTML= cervezasArtesanales;
-    console.log(cervezasArtesanales);
+    resultado2= document.getElementById('total');
+    resultado2.innerHTML= cantidadBebidasVendidas;
 
-    let resultado3= document.getElementById('tragos');
-    resultado3.innerHTML= tragos;
-    console.log(tragos);
+    resultado3= document.getElementById('cervezas');
+    resultado3.innerHTML= cervezasArtesanales;
 
-    let resultado4= document.getElementById('bebidasSAlcohol');
-    resultado4.innerHTML= bebidasSAlcohol;
-    console.log(bebidasSAlcohol);
+    resultado4= document.getElementById('tragos');
+    resultado4.innerHTML= tragos;
 
-    let resultado5= document.getElementById('grupos');
-    resultado5.innerHTML= grupoMenorA4;
-    console.log(grupoMenorA4);
+    resultado5= document.getElementById('bebidas');
+    resultado5.innerHTML= bebidasSAlcohol;
+
+    resultado6= document.getElementById('grupos');
+    resultado6.innerHTML= grupoMenorA4;
 }
-*/
-
