@@ -101,7 +101,7 @@ var cantidadBebidasVendidas, Ui;
 var k= -1;
 
 function calcularDistribuciones(){
-    for (simulacionMes=0; simulacionMes<4; simulacionMes++) {
+    for (simulacionMes=0; simulacionMes<30; simulacionMes++) {
         
         if(datosUi[i] != null || datosUi[i+1] != null){
             Ui = datosUi[i];
