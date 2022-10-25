@@ -98,7 +98,7 @@ var simulacionMes = 0, i=0;
 var UiInsuficiente= false;
 var grupoMenorA4=0, bebida = 1;
 var cantidadBebidasVendidas, Ui;
-
+var k= -1;
 
 function calcularDistribuciones(){
     for (simulacionMes=0; simulacionMes<4; simulacionMes++) {
@@ -124,10 +124,10 @@ function calcularDistribuciones(){
             
 
             console.log("cantCervezas", cervezasArtesanales);
-         /*else {
+        
            
             geometrica();
-        }*/
+        
         impresionPorPantalla();
          
     }
@@ -148,7 +148,20 @@ function normal() {
 
 function binomial() {
     
-       /* if(datosUi[bebida-1]< 0.25) {
+        if (datosUi[bebida]>=0.45) {
+            cervezasArtesanales= cervezasArtesanales+1;
+        }
+        else{
+            if (datosUi[bebida]>=0.30) {
+                tragos= tragos+1;
+            } 
+            else{
+                bebidasSAlcohol= bebidasSAlcohol+1
+            }
+        }
+    }
+
+     /* if(datosUi[bebida-1]< 0.25) {
             bebidasSAlcohol= bebidasSAlcohol+1;
         }
         if(datosUi[bebida-1] > 0.25 && datosUi[bebida-1] <=0.45){
@@ -158,16 +171,6 @@ function binomial() {
         }
     }
     */
-
-        if (datosUi[bebida]>=0.45) {
-            cervezasArtesanales= cervezasArtesanales+1;
-        }
-        if (datosUi[bebida]>=0.30) {
-                tragos= tragos+1;
-        } else{
-            bebidasSAlcohol= bebidasSAlcohol+1
-        }
-    }
 
         /*if (datosUi[bebida]<=0.25) {
             bebidasSAlcohol= bebidasSAlcohol+1
@@ -189,23 +192,24 @@ function binomial() {
         } else {
             tragos= tragos+1;
         }
-
+        */
 
 function geometrica () {
-    
     p = 0.4;
     let bandera = true;
     while(bandera == true){
-        
-        if(Ui <= p) {
+        k++;
+        if(datosUi[k] <= p) {
             bandera = false;
         } else {
             grupoMenorA4 = grupoMenorA4 + 1;
         }
+       
+        console.log("valor u", datosUi[k])
     }
 }
 
-var resultado1, resultado2, resultado3, resultado4, resultado5, resultado6;*/
+//var resultado1, resultado2, resultado3, resultado4, resultado5, resultado6;*/
 
 function impresionPorPantalla() {
     var newRow=document.getElementById('tablaResultados').insertRow();
@@ -228,11 +232,13 @@ function impresionPorPantalla() {
     var newCell= newRow.insertCell(4);
     newCell.innerHTML= bebidasSAlcohol;
     bebidasSAlcohol=0;
+
+
+    var newCell= newRow.insertCell(5);
+    newCell.innerHTML= grupoMenorA4;
+    grupoMenorA4=0;
+    
 }
-
-    /*var newCell= newRow.insertCell(5);
-    newCell.innerHTML= grupoMenorA4;*/
-
 
    /* resultado1= document.getElementById('duracion');
     resultado1.innerHTML= duracionVentas;
