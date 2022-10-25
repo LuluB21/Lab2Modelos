@@ -96,73 +96,63 @@ function mod(vC2, vM){
 var duracionVentas=0, cervezasArtesanales=0, tragos=0, bebidasSAlcohol=0;
 var simulacionMes = 0, i=0;
 var UiInsuficiente= false;
-var grupoMenorA4=0, bebida;
+var grupoMenorA4=0, bebida = 1;
 var cantidadBebidasVendidas, Ui;
 
 
 function calcularDistribuciones(){
-    for (simulacionMes=0; simulacionMes<30; simulacionMes++) {
-        cantidadBebidasVendidas=0;
+    for (simulacionMes=0; simulacionMes<4; simulacionMes++) {
         
         if(datosUi[i] != null || datosUi[i+1] != null){
             Ui = datosUi[i];
             i++;
         }
-        console.log(Ui);
-        //x = -(1/7) * Math.log(Ui); /*Coloco 1/7 porque en una noche los clientes tienen 7 horas para solicitar alguna bebida*/
-                                                /*VERIFICAR QUE VA*/
 
-        //duracionVentas = duracionVentas + x;//*ACUMULA TODOS LOS VALORES */
         duracionVentas = 0;
-        duracionVentas = -(1/7) * Math.log(Ui);
+        duracionVentas = -(7) * Math.log10(Ui);
         
         normal();
 
         bebida = 1;
-
+        console.log("bebida", bebida);
         
         if(bebida <= cantidadBebidasVendidas) {
-            for (bebida = 1; bebida <= cantidadBebidasVendidas; bebida++) {
+            /*for (bebida = 1; bebida <= cantidadBebidasVendidas; bebida++) {
                 binomial();        
-            }
-        } else {
+            }*/
+            bebida++;
+        } /*else {
            
             geometrica();
-        }
+        }*/
         impresionPorPantalla();
-        
-        simulacionMes = simulacionMes + 1;
-        
+         
     }
     
 }
 
-var sum= 0;
+var sum = 0, e = 0;
 
 function normal() {
-    
-    var e=0;
+    sum = 0;
+    cantidadBebidasVendidas = 0;
     for (var a = 1; a <= 12; a++) {
-        sum= sum + datosUi[e];
+        sum = sum + datosUi[e];
         e++; 
     }
-    console.log(sum);
     cantidadBebidasVendidas = 80 * (sum - 6) + 300
-    console.log(cantidadBebidasVendidas);
 }
 
 function binomial() {
-        
-
-        /*if(datosUi[bebida]< 0.25) {
+        if(datosUi[bebida]< 0.25) {
             bebidasSAlcohol= bebidasSAlcohol+1;
         }
         if(datosUi[bebida] > 0.25 && datosUi[bebida] <=0.45){
-            cervezasArtesanales = cervezasArtesanales + 1;
-        } else {
             tragos= tragos+1;
-        }*/
-
+        } else {
+            cervezasArtesanales = cervezasArtesanales + 1;
+        }
+}
         /*if (datosUi[bebida]>=0.45) {
             cervezasArtesanales= cervezasArtesanales+1;
         }
@@ -184,15 +174,15 @@ function binomial() {
                 cervezasArtesanales= cervezasArtesanales+1;
             }
         }*/
-        if(datosUi[bebida]< 0.25) {
+        /*if(datosUi[bebida]< 0.25) {
             bebidasSAlcohol= bebidasSAlcohol+1;
         }
         if(datosUi[bebida] > 0.25 && datosUi[bebida] <=0.45){
             cervezasArtesanales = cervezasArtesanales + 1;
         } else {
             tragos= tragos+1;
-}
-}
+        }
+
 
 function geometrica () {
     
@@ -208,27 +198,28 @@ function geometrica () {
     }
 }
 
-var resultado1, resultado2, resultado3, resultado4, resultado5, resultado6;
+var resultado1, resultado2, resultado3, resultado4, resultado5, resultado6;*/
 
 function impresionPorPantalla() {
     var newRow=document.getElementById('tablaResultados').insertRow();
+    
     var newCell= newRow.insertCell(0);
     newCell.innerHTML= duracionVentas;
 
     var newCell= newRow.insertCell(1);
     newCell.innerHTML= cantidadBebidasVendidas;
 
-    var newCell= newRow.insertCell(2);
+    /*var newCell= newRow.insertCell(2);
     newCell.innerHTML= cervezasArtesanales;
 
     var newCell= newRow.insertCell(3);
     newCell.innerHTML= tragos;
 
     var newCell= newRow.insertCell(4);
-    newCell.innerHTML= bebidasSAlcohol;
+    newCell.innerHTML= bebidasSAlcohol;*/
 
-    var newCell= newRow.insertCell(5);
-    newCell.innerHTML= grupoMenorA4;
+    /*var newCell= newRow.insertCell(5);
+    newCell.innerHTML= grupoMenorA4;*/
 
 
    /* resultado1= document.getElementById('duracion');
