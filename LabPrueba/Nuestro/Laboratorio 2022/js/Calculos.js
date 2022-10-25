@@ -99,8 +99,14 @@ var UiInsuficiente= false;
 var grupoMenorA4=0, bebida;
 var cantidadBebidasVendidas;
 
+
 function calcularDistribuciones(){
     for (simulacionMes=0; simulacionMes<30; simulacionMes++) {
+        var duracionVentas=0, cervezasArtesanales=0, tragos=0, bebidasSAlcohol=0;
+        var grupoMenorA4=0; 
+        var cantidadBebidasVendidas=0;
+
+        
         if(datosUi[i] != null || datosUi[i+1] != null){
             Ui = datosUi[i];
             i++;
@@ -109,7 +115,7 @@ function calcularDistribuciones(){
         x = -(1/7) * Math.log(Ui); /*Coloco 1/7 porque en una noche los clientes tienen 7 horas para solicitar alguna bebida*/
                                                 /*VERIFICAR QUE VA*/
 
-        /*duracionVentas = duracionVentas + x;*//*ACUMULA TODOS LOS VALORES */
+        duracionVentas = duracionVentas + x;//*ACUMULA TODOS LOS VALORES */
         
         normal();
 
@@ -136,10 +142,14 @@ function calcularDistribuciones(){
 var sum= 0;
 
 function normal() {
+    var e=0;
     for (var a = 1; a <= 12; a++) {
-        sum= sum + datosUi[a]; 
+        sum= sum + datosUi[e];
+        e++; 
     }
+    console.log(sum);
     cantidadBebidasVendidas = 80 * (sum - 6) + 300
+    console.log(cantidadBebidasVendidas);
 }
 
 function binomial() {
@@ -161,7 +171,7 @@ function binomial() {
             bebidasSAlcohol= bebidasSAlcohol+1
         }*/
 
-        if(datosUi[bebida]< 0.25) {
+        if(datosUi[bebida]<= 0.25) {
             bebidasSAlcohol= bebidasSAlcohol+1;
         }
         if(datosUi[bebida] >= 0.30){
@@ -192,7 +202,27 @@ function geometrica () {
 var resultado1, resultado2, resultado3, resultado4, resultado5, resultado6;
 
 function impresionPorPantalla() {
-    resultado1= document.getElementById('duracion');
+    var newRow=document.getElementById('tablaResultados').insertRow();
+    var newCell= newRow.insertCell(0);
+    newCell.innerHTML= duracionVentas;
+
+    var newCell= newRow.insertCell(1);
+    newCell.innerHTML= cantidadBebidasVendidas;
+
+    var newCell= newRow.insertCell(2);
+    newCell.innerHTML= cervezasArtesanales;
+
+    var newCell= newRow.insertCell(3);
+    newCell.innerHTML= tragos;
+
+    var newCell= newRow.insertCell(4);
+    newCell.innerHTML= bebidasSAlcohol;
+
+    var newCell= newRow.insertCell(5);
+    newCell.innerHTML= grupoMenorA4;
+
+
+   /* resultado1= document.getElementById('duracion');
     resultado1.innerHTML= duracionVentas;
 
     resultado2= document.getElementById('total');
@@ -208,5 +238,18 @@ function impresionPorPantalla() {
     resultado5.innerHTML= bebidasSAlcohol;
 
     resultado6= document.getElementById('grupos');
-    resultado6.innerHTML= grupoMenorA4;
+    resultado6.innerHTML= grupoMenorA4;*/
+
+    /*var fila = `
+    <tr>
+        <td>${duracionVentas}</td>
+        <td>${cantidadBebidasVendidas}</td>
+        <td>${cervezasArtesanales}</td>
+        <td>${tragos}</td>
+        <td>${bebidasSAlcohol}</td>
+        <td>${grupoMenorA4}</td>
+    </tr>`;
+*/
+    
+
 }
