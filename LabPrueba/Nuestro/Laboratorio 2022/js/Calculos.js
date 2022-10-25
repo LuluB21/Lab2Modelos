@@ -127,9 +127,8 @@ function calcularDistribuciones(){
         
            
             geometrica();
-        
+
         impresionPorPantalla();
-         
     }
     
 }
@@ -161,39 +160,6 @@ function binomial() {
         }
     }
 
-     /* if(datosUi[bebida-1]< 0.25) {
-            bebidasSAlcohol= bebidasSAlcohol+1;
-        }
-        if(datosUi[bebida-1] > 0.25 && datosUi[bebida-1] <=0.45){
-            tragos= tragos+1;
-        } else {
-            cervezasArtesanales = cervezasArtesanales + 1;
-        }
-    }
-    */
-
-        /*if (datosUi[bebida]<=0.25) {
-            bebidasSAlcohol= bebidasSAlcohol+1
-            
-        }
-        else {
-            if (datosUi[bebida]>=0.35 && datosUi[bebida]<0.45 ) {
-                tragos= tragos+1;
-            }
-            else{
-                cervezasArtesanales= cervezasArtesanales+1;
-            }
-        }*/
-        /*if(datosUi[bebida]< 0.25) {
-            bebidasSAlcohol= bebidasSAlcohol+1;
-        }
-        if(datosUi[bebida] > 0.25 && datosUi[bebida] <=0.45){
-            cervezasArtesanales = cervezasArtesanales + 1;
-        } else {
-            tragos= tragos+1;
-        }
-        */
-
 function geometrica () {
     p = 0.4;
     let bandera = true;
@@ -209,53 +175,33 @@ function geometrica () {
     }
 }
 
-//var resultado1, resultado2, resultado3, resultado4, resultado5, resultado6;*/
-
 function impresionPorPantalla() {
     var newRow=document.getElementById('tablaResultados').insertRow();
-    
+
     var newCell= newRow.insertCell(0);
+    newCell.innerHTML= simulacionMes + 1;
+    
+    var newCell= newRow.insertCell(1);
     newCell.innerHTML= duracionVentas;
 
-    var newCell= newRow.insertCell(1);
+    var newCell= newRow.insertCell(2);
     newCell.innerHTML= cantidadBebidasVendidas;
     cantidadBebidasVendidas = 0;
 
-    var newCell= newRow.insertCell(2);
+    var newCell= newRow.insertCell(3);
     newCell.innerHTML= cervezasArtesanales;
     cervezasArtesanales= 0;
 
-    var newCell= newRow.insertCell(3);
+    var newCell= newRow.insertCell(4);
     newCell.innerHTML= tragos;
     tragos=0;
 
-    var newCell= newRow.insertCell(4);
+    var newCell= newRow.insertCell(5);
     newCell.innerHTML= bebidasSAlcohol;
     bebidasSAlcohol=0;
 
-
-    var newCell= newRow.insertCell(5);
+    var newCell= newRow.insertCell(6);
     newCell.innerHTML= grupoMenorA4;
     grupoMenorA4=0;
-    
+
 }
-
-   /* resultado1= document.getElementById('duracion');
-    resultado1.innerHTML= duracionVentas;
-
-    resultado2= document.getElementById('total');
-    resultado2.innerHTML= cantidadBebidasVendidas;
-
-    resultado3= document.getElementById('cervezas');
-    resultado3.innerHTML= cervezasArtesanales;
-
-    resultado4= document.getElementById('tragos');
-    resultado4.innerHTML= tragos;
-
-    resultado5= document.getElementById('bebidas');
-    resultado5.innerHTML= bebidasSAlcohol;
-
-    resultado6= document.getElementById('grupos');
-    resultado6.innerHTML= grupoMenorA4;*/
-
-
