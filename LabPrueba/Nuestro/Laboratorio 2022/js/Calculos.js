@@ -116,12 +116,15 @@ function calcularDistribuciones(){
         bebida = 1;
         console.log("bebida", bebida);
         
-        if(bebida <= cantidadBebidasVendidas) {
-            /*for (bebida = 1; bebida <= cantidadBebidasVendidas; bebida++) {
-                binomial();        
-            }*/
-            bebida++;
-        } /*else {
+            for (bebida = 1; bebida <= cantidadBebidasVendidas; bebida++) {
+                console.log("cant", cantidadBebidasVendidas);
+                binomial();     
+                
+            }
+            
+
+            console.log("cantCervezas", cervezasArtesanales);
+         /*else {
            
             geometrica();
         }*/
@@ -140,27 +143,31 @@ function normal() {
         sum = sum + datosUi[e];
         e++; 
     }
-    cantidadBebidasVendidas = 80 * (sum - 6) + 300
+    cantidadBebidasVendidas = Math.trunc(80 * (sum - 6) + 300)
 }
 
 function binomial() {
-        if(datosUi[bebida]< 0.25) {
+    
+       /* if(datosUi[bebida-1]< 0.25) {
             bebidasSAlcohol= bebidasSAlcohol+1;
         }
-        if(datosUi[bebida] > 0.25 && datosUi[bebida] <=0.45){
+        if(datosUi[bebida-1] > 0.25 && datosUi[bebida-1] <=0.45){
             tragos= tragos+1;
         } else {
             cervezasArtesanales = cervezasArtesanales + 1;
         }
-}
-        /*if (datosUi[bebida]>=0.45) {
+    }
+    */
+
+        if (datosUi[bebida]>=0.45) {
             cervezasArtesanales= cervezasArtesanales+1;
         }
         if (datosUi[bebida]>=0.30) {
                 tragos= tragos+1;
         } else{
             bebidasSAlcohol= bebidasSAlcohol+1
-        }*/
+        }
+    }
 
         /*if (datosUi[bebida]<=0.25) {
             bebidasSAlcohol= bebidasSAlcohol+1
@@ -208,15 +215,20 @@ function impresionPorPantalla() {
 
     var newCell= newRow.insertCell(1);
     newCell.innerHTML= cantidadBebidasVendidas;
+    cantidadBebidasVendidas = 0;
 
-    /*var newCell= newRow.insertCell(2);
+    var newCell= newRow.insertCell(2);
     newCell.innerHTML= cervezasArtesanales;
+    cervezasArtesanales= 0;
 
     var newCell= newRow.insertCell(3);
     newCell.innerHTML= tragos;
+    tragos=0;
 
     var newCell= newRow.insertCell(4);
-    newCell.innerHTML= bebidasSAlcohol;*/
+    newCell.innerHTML= bebidasSAlcohol;
+    bebidasSAlcohol=0;
+}
 
     /*var newCell= newRow.insertCell(5);
     newCell.innerHTML= grupoMenorA4;*/
@@ -240,4 +252,4 @@ function impresionPorPantalla() {
     resultado6= document.getElementById('grupos');
     resultado6.innerHTML= grupoMenorA4;*/
 
-}
+
