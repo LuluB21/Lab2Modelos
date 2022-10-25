@@ -5,6 +5,10 @@
     padding: 0;
 }
 
+body, html {
+    background-color: #0099cc;
+}
+
 .container-fluid{
     background-color: #0099cc;
     width: 100%;
