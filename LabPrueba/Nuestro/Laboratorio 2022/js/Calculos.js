@@ -97,51 +97,50 @@ var duracionVentas=0, cervezasArtesanales=0, tragos=0, bebidasSAlcohol=0;
 var simulacionMes = 0, i=0;
 var UiInsuficiente= false;
 var grupoMenorA4=0, bebida;
-var cantidadBebidasVendidas;
+var cantidadBebidasVendidas, Ui;
 
 
 function calcularDistribuciones(){
     for (simulacionMes=0; simulacionMes<30; simulacionMes++) {
-        var duracionVentas=0, cervezasArtesanales=0, tragos=0, bebidasSAlcohol=0;
-        var grupoMenorA4=0; 
-        var cantidadBebidasVendidas=0;
-
+        cantidadBebidasVendidas=0;
         
         if(datosUi[i] != null || datosUi[i+1] != null){
             Ui = datosUi[i];
             i++;
         }
-
-        x = -(1/7) * Math.log(Ui); /*Coloco 1/7 porque en una noche los clientes tienen 7 horas para solicitar alguna bebida*/
+        console.log(Ui);
+        //x = -(1/7) * Math.log(Ui); /*Coloco 1/7 porque en una noche los clientes tienen 7 horas para solicitar alguna bebida*/
                                                 /*VERIFICAR QUE VA*/
 
-        duracionVentas = duracionVentas + x;//*ACUMULA TODOS LOS VALORES */
+        //duracionVentas = duracionVentas + x;//*ACUMULA TODOS LOS VALORES */
+        duracionVentas = 0;
+        duracionVentas = -(1/7) * Math.log(Ui);
         
         normal();
 
         bebida = 1;
 
-        if(datosUi[i] != null || datosUi[i+1] != null){
-            Ui = datosUi[i];
-            i++;
-        }
-
+        
         if(bebida <= cantidadBebidasVendidas) {
             for (bebida = 1; bebida <= cantidadBebidasVendidas; bebida++) {
-                binomial();
-                bebida = bebida + 1;
+                binomial();        
             }
         } else {
+           
             geometrica();
         }
+        impresionPorPantalla();
+        
         simulacionMes = simulacionMes + 1;
+        
     }
-    impresionPorPantalla();
+    
 }
 
 var sum= 0;
 
 function normal() {
+    
     var e=0;
     for (var a = 1; a <= 12; a++) {
         sum= sum + datosUi[e];
@@ -153,6 +152,8 @@ function normal() {
 }
 
 function binomial() {
+        
+
         /*if(datosUi[bebida]< 0.25) {
             bebidasSAlcohol= bebidasSAlcohol+1;
         }
@@ -171,26 +172,34 @@ function binomial() {
             bebidasSAlcohol= bebidasSAlcohol+1
         }*/
 
-        if(datosUi[bebida]<= 0.25) {
+        /*if (datosUi[bebida]<=0.25) {
+            bebidasSAlcohol= bebidasSAlcohol+1
+            
+        }
+        else {
+            if (datosUi[bebida]>=0.35 && datosUi[bebida]<0.45 ) {
+                tragos= tragos+1;
+            }
+            else{
+                cervezasArtesanales= cervezasArtesanales+1;
+            }
+        }*/
+        if(datosUi[bebida]< 0.25) {
             bebidasSAlcohol= bebidasSAlcohol+1;
         }
-        if(datosUi[bebida] >= 0.30){
-            tragos= tragos+1;
-        } 
-        if(datosUi[bebida] >= 0.45) {
+        if(datosUi[bebida] > 0.25 && datosUi[bebida] <=0.45){
             cervezasArtesanales = cervezasArtesanales + 1;
-        }
+        } else {
+            tragos= tragos+1;
+}
 }
 
-
 function geometrica () {
+    
     p = 0.4;
     let bandera = true;
     while(bandera == true){
-        if(datosUi[i] != null || datosUi[i+1] != null){
-            Ui = datosUi[i];
-            i++; 
-        }
+        
         if(Ui <= p) {
             bandera = false;
         } else {
@@ -239,17 +248,5 @@ function impresionPorPantalla() {
 
     resultado6= document.getElementById('grupos');
     resultado6.innerHTML= grupoMenorA4;*/
-
-    /*var fila = `
-    <tr>
-        <td>${duracionVentas}</td>
-        <td>${cantidadBebidasVendidas}</td>
-        <td>${cervezasArtesanales}</td>
-        <td>${tragos}</td>
-        <td>${bebidasSAlcohol}</td>
-        <td>${grupoMenorA4}</td>
-    </tr>`;
-*/
-    
 
 }
